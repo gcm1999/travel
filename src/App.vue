@@ -1,16 +1,14 @@
 <template>
   <div>
-    <HomeVue></HomeVue>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HomeVue from "@/views/Home";
 
 export default {
   name: "App",
   components: {
-    HomeVue,
   },
 };
 </script>

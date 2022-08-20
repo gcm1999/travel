@@ -10,14 +10,13 @@
         clickable: true,
         // bulletActiveClass: 'my-bullet-active',
       }"
+      v-if="list"
     >
-      <swiper-slide
-        ><img
-          class="swiper-img"
-          src="http://p1.music.126.net/DT8iRFoM3StsDTifuSBOag==/109951167771606613.jpg?imageView&quality=89"
-          alt=""
+    <!-- <div>{{list}}}</div> -->
+      <swiper-slide v-for="(item, index) in list" :key="item.id"
+        ><img class="swiper-img" :src="item.imgUrl" alt=""
       /></swiper-slide>
-      <swiper-slide
+      <!-- <swiper-slide
         ><img
           class="swiper-img"
           src="http://p1.music.126.net/sPBon4xyJTZ3pLWBEqS65w==/109951167771593801.jpg?imageView&quality=89"
@@ -52,7 +51,7 @@
           class="swiper-img"
           src="http://p1.music.126.net/gaKwsJ6HSYk5y7wV2MzrcA==/109951167770682948.jpg?imageView&quality=89"
           alt=""
-      /></swiper-slide>
+      /></swiper-slide> -->
     </swiper>
   </div>
 </template>
@@ -63,17 +62,22 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { computed } from "vue";
 export default {
   name: "HomeSwiper",
   title: "Loop mode / Infinite loop",
   url: import.meta.url,
+  props: ["list"],
   components: {
     Swiper,
     SwiperSlide,
   },
-  setup() {
+  setup(props) {
+    // let swiperShow = computed(() => props.list.value.length);
+    // console.log(props.list.value.length);
     return {
       modules: [Pagination, Navigation],
+      // swiperShow,
     };
   },
   // computed: {
@@ -88,24 +92,13 @@ export default {
 .swiper-img {
   width: 100%;
 }
-/* .my-bullet-active {
-  background: red;
-  color: red;
+.my-bullet-active {
+  background-color:rgb(255,255,255)
   opacity: 1;
-} */
-/* .wrapper >  .swiper-pagination-bullet-active {
+}
+.swiper-pagination-bullet-active {
   background: #fff;
-}
+  color: red;
 
-.wrapper {
-  overflow: hidden;
-  width: 100%;
-  height: 0;
-  padding-bottom: 31.25%;
-  background: #eee;
 }
-
-.wrapper .swiper-img {
-  width: 100%;
-} */
 </style>

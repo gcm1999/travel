@@ -8,10 +8,10 @@
       输入城市/景点/游玩主题
     </div>
     <!-- <router-link to="/city"> -->
-      <div class="header-right">
-        城市{{ this }}
-        <span class="iconfont arrow-icon">&#xe64a;</span>
-      </div>
+    <div class="header-right">
+      城市{{ this }}
+      <span class="iconfont arrow-icon">&#xe64a;</span>
+    </div>
     <!-- </router-link> -->
   </div>
 </template>
@@ -30,8 +30,8 @@ export default {
 /* @import "~styles/varibles.styl"; */
 .header {
   display: flex;
-  line-height: .86rem;
-  background: rgb(194,12,12);
+  line-height: 0.86rem;
+  background: rgb(194, 12, 12);
   color: #fff;
 }
 

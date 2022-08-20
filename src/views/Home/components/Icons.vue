@@ -16,7 +16,6 @@
 
 <script>
 import { computed } from "vue";
-
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
 
@@ -62,11 +61,13 @@ export default {
 
 <style lang="stylus" scoped>
 .icons
+  margin-top .1rem
   overflow:hidden
   height:0
   padding-bottom:50%
   // background-color:green
   .icon
+    // margin-top .1rem
     padding-bottom:25%
     height:50%
     width:25%
@@ -80,11 +81,13 @@ export default {
       left:0
       right:0
       bottom:.44rem
+      box-sizing border-box
+      padding:.1rem
       // background: blue
       .icon-img-content
         display block
         height:100%
-        margin auto
+        margin 0 auto
     .icon-desc
       position:absolute
       bottom:0

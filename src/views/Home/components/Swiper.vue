@@ -74,7 +74,7 @@ export default {
   },
   setup(props) {
     // let swiperShow = computed(() => props.list.value.length);
-    // console.log(props.list.value.length);
+    console.log(props);
     return {
       modules: [Pagination, Navigation],
       // swiperShow,

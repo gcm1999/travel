@@ -36,7 +36,7 @@ export default {
 
     let pages = computed(() => {
       const pages = [];
-      console.log(iconList);
+      // console.log(iconList);
       iconList.value.forEach((element, index) => {
         const page = Math.floor(index / 8);
         if (!pages[page]) {

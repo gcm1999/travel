@@ -10,9 +10,9 @@
         clickable: true,
         // bulletActiveClass: 'my-bullet-active',
       }"
-      v-if="list"
+      v-if="list" 
     >
-    <!-- <div>{{list}}}</div> -->
+      <!-- <div>{{list}}}</div> -->
       <swiper-slide v-for="(item, index) in list" :key="item.id"
         ><img class="swiper-img" :src="item.imgUrl" alt=""
       /></swiper-slide>
@@ -67,7 +67,7 @@ export default {
   name: "HomeSwiper",
   title: "Loop mode / Infinite loop",
   url: import.meta.url,
-  props: ["list"],
+  props: { list: [] },
   components: {
     Swiper,
     SwiperSlide,

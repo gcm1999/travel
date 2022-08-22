@@ -13,6 +13,11 @@ const router = createRouter({
       component: () => import("@/views/Detail"),
       name: "detail",
     },
+    {
+      path: "/city",
+      component: () => import("@/views/City"),
+      name: "city",
+    },
   ],
 });
 export default router;

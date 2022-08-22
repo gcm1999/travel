@@ -36,7 +36,7 @@ export default {
     function getData() {
       axios.get("/api/mock/index.json").then((res) => {
         // console.log(res.data.data);
-        data.data = reactive(res.data.data);
+        data.data = res.data.data;
       });
     }
 

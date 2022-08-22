@@ -10,98 +10,112 @@
     <input type="text" placeholder="输入城市名或拼音" class="search-input" />
   </div>
 
-  <div class="list">
-    <div class="area">
-      <div class="title border-topbottom">当前城市</div>
-      <div class="button-list">
-        <div class="button-wrapper">
-          <div class="button">北京</div>
+  <div class="list" ref="list">
+    <div class="content">
+      <div class="area">
+        <div class="title border-topbottom">当前城市</div>
+        <div class="button-list">
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title border-topbottom">热门城市</div>
-      <div class="button-list">
-        <div class="button-wrapper">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-wrapper">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-wrapper">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-wrapper">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-wrapper">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-wrapper">
-          <div class="button">北京</div>
-        </div>
-        <div class="button-wrapper">
-          <div class="button">北京</div>
+      <div class="area">
+        <div class="title border-topbottom">热门城市</div>
+        <div class="button-list">
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="area">
-      <div class="title border-topbottom">A</div>
-      <div class="item-list">
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-      </div>
-      <div class="title border-topbottom">A</div>
-      <div class="item-list">
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-      </div>
-      <div class="title border-topbottom">A</div>
-      <div class="item-list">
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-      </div>
-      <div class="title border-topbottom">A</div>
-      <div class="item-list">
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-      </div>
-      <div class="title border-topbottom">A</div>
-      <div class="item-list">
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
-        <div class="item border-topbottom">阿拉尔</div>
+      <div class="area">
+        <div class="title border-topbottom">A</div>
+        <div class="item-list">
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+        </div>
+        <div class="title border-topbottom">A</div>
+        <div class="item-list">
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+        </div>
+        <div class="title border-topbottom">A</div>
+        <div class="item-list">
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+        </div>
+        <div class="title border-topbottom">A</div>
+        <div class="item-list">
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+        </div>
+        <div class="title border-topbottom">A</div>
+        <div class="item-list">
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+          <div class="item border-topbottom">阿拉尔</div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import BScroll from "@better-scroll/core";
+import { ref, onMounted } from "vue";
 export default {
   name: "City",
+  setup(props, content) {
+    // console.log(props);
+    // console.log(content);
+    const list = ref(null);
+    onMounted(() => {
+      //   console.log(list.value);
+      new BScroll(list.value);
+    });
+    return { list };
+  },
 };
 </script>
 <style lang="stylus" scoped>

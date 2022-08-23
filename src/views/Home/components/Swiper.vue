@@ -67,7 +67,7 @@ export default {
   name: "HomeSwiper",
   title: "Loop mode / Infinite loop",
   url: import.meta.url,
-  props: { list: [] },
+  props: { list: {} },
   components: {
     Swiper,
     SwiperSlide,

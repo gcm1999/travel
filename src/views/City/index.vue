@@ -54,7 +54,9 @@
         class="item"
         v-for="(value, key, index) in cityList.cities"
         :key="key"
-        @click="handerCityClick($event, index)"
+        :ref="key"
+        @click="handleCityClick(index, $event)"
+        @touchmove="handleCityTouch($event)"
       >
         {{ key }}
       </div>
@@ -71,9 +73,10 @@ export default {
   setup(props, content) {
     // console.log(props);
     // console.log(content);
-    let data = reactive({ cityList: {}, letter: "" });
+    let data = reactive({ cityList: {} });
 
     const list = ref(null);
+    const A = ref(null);
     const letterRefs = ref([]);
 
     onMounted(() => {
@@ -94,16 +97,21 @@ export default {
         // new BScroll(list.value);
         nextTick(() => {
           // console.log('aaa');
-          new BScroll(list.value);
+          data.scroll = new BScroll(list.value);
         });
       });
     }
 
-    function handerCityClick(e, index) {
+    function handleCityClick(index, e) {
       // console.log(e.target.innerText);
       // data.letter = e.target.innerText;
       // console.log(index);
-      // console.log(letterRefs.value[index]);
+      // console.log(letterRefs.value[index].offsetTop);
+      data.scroll.scrollToElement(letterRefs.value[index]);
+      // list.value.scrollTo({
+      //   top: letterRefs.value[index].offsetTop,
+      // });
+
       // console.log(letterRefs.value[index].offsetTop);
       // scrollTo({
       //   top:letterRefs.value[index].offsetTop
@@ -113,6 +121,32 @@ export default {
       // console.log(this);
       // console.log(letterRefs);
       // const element = ref(null)
+    }
+
+    function handleCityTouch(e) {
+      // if (data.timer) {
+      //   data.timer = null;
+      // } else {
+      //   data.timer = setTimeout(() => {
+      //     console.log(e.touches[0].clientY);
+      //     console.log(A.value[0].offsetTop);
+      //   }, 1000);
+      // }
+
+      const index = Math.floor(
+        (e.touches[0].clientY - 79 - A.value[0].offsetTop) / 20
+      );
+      // console.log(index);
+      if (!data.timer) {
+        data.timer = setTimeout(() => {
+          if (index >= 0 && index <= 21) {
+            handleCityClick(index);
+          }
+          data.timer = null;
+        }, 18);
+      }
+
+      // console.log(index);
     }
 
     let cityList = toRef(data, "cityList");
@@ -126,7 +160,16 @@ export default {
     //   }
     // );
 
-    return { letterRefs, list, getCityList, cityList, handerCityClick, data };
+    return {
+      A,
+      letterRefs,
+      list,
+      getCityList,
+      cityList,
+      handleCityClick,
+      data,
+      handleCityTouch,
+    };
   },
 };
 </script>

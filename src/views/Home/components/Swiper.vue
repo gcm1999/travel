@@ -10,7 +10,7 @@
         clickable: true,
         // bulletActiveClass: 'my-bullet-active',
       }"
-      v-if="list" 
+      v-if="list"
     >
       <!-- <div>{{list}}}</div> -->
       <swiper-slide v-for="(item, index) in list" :key="item.id"
@@ -74,7 +74,7 @@ export default {
   },
   setup(props) {
     // let swiperShow = computed(() => props.list.value.length);
-    console.log(props);
+    // console.log(props);
     return {
       modules: [Pagination, Navigation],
       // swiperShow,

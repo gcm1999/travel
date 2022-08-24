@@ -8,7 +8,27 @@
     </div>
 
     <div class="search">
-      <input type="text" placeholder="输入城市名或拼音" class="search-input" />
+      <input
+        type="text"
+        placeholder="输入城市名或拼音"
+        v-model="keyword"
+        class="search-input"
+      />
+    </div>
+    <div class="search-content" ref="search" v-show="keyword">
+      <ul>
+        <li
+          class="search-item border-bottom"
+          v-for="item of data.searchCities"
+          :key="item.id"
+          @click="handleCityClick(item.name)"
+        >
+          {{ item.name }}
+        </li>
+        <li class="search-item border-bottom" v-show="!data.searchCities.length">
+          没有找到匹配数据
+        </li>
+      </ul>
     </div>
 
     <div class="list" ref="list">
@@ -73,7 +93,7 @@ export default {
   setup(props, content) {
     // console.log(props);
     // console.log(content);
-    let data = reactive({ cityList: {} });
+    let data = reactive({ cityList: {}, searchCities: [] });
 
     const list = ref(null);
     const A = ref(null);
@@ -150,17 +170,39 @@ export default {
     }
 
     let cityList = toRef(data, "cityList");
+    // let searchCities = [];
 
-    // watch(
-    //   () => data.letter,
-    //   (newValue, oldValue) => {
-    //     // console.log(this);
-    //     console.log(newValue, oldValue);
-    //     console.log(letterRefs.value);
-    //   }
-    // );
+    const keyword = ref("");
+    watch(keyword, (n, o) => {
+      // console.log(cityList.value.cities);
+      data.searchCities = [];
+      let cities = cityList.value.cities;
+
+      if (n) {
+        for (const key in cities) {
+          if (cities.hasOwnProperty.call(cities, key)) {
+            const arr = cities[key];
+            arr.forEach((element) => {
+              // console.log(element);
+              // console.log(keyword);
+              if (
+                !(element.name.indexOf(keyword.value) == -1) ||
+                !(element.spell.indexOf(keyword.value) == -1)
+              ) {
+                // console.log(element.name.indexOf(keyword.value));
+                data.searchCities.push(element);
+              }
+            });
+          }
+        }
+      }
+
+      // console.log(searchCities);
+    });
 
     return {
+      // searchCities,
+      keyword,
       A,
       letterRefs,
       list,
@@ -245,7 +287,20 @@ export default {
             color #666
             padding 0 .1rem
             text-align center
-
+    .search-content
+      z-index: 1
+      overflow: hidden
+      position: absolute
+      top: 1.58rem
+      left: 0
+      right: 0
+      bottom: 0
+      background: #eee
+      .search-item
+        line-height: .62rem
+        padding-left: .2rem
+        background: #fff
+        color: #666
 
     .header
         overflow hidden

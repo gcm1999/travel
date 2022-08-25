@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 
 import fastClick from "fastclick";
+// import store from "./store";
 
 // import SwiperClass /* swiper modules... */ from "swiper";
 // import VueAwesomeSwiper from "vue-awesome-swiper";

@@ -8,18 +8,26 @@
       输入城市/景点/游玩主题
     </div>
     <router-link to="/city">
-    <div class="header-right">
-      城市{{ this }}
-      <span class="iconfont arrow-icon">&#xe64a;</span>
-    </div>
+      <div class="header-right">
+        {{ data.currentCity || "城市" }}
+        <span class="iconfont arrow-icon">&#xe64a;</span>
+      </div>
     </router-link>
   </div>
 </template>
 
 <script>
 // import { mapState } from 'vuex'
+import store from "@/store";
+import { reactive } from "vue";
 export default {
   name: "HomeHeader",
+  setup() {
+    const data = reactive({
+      currentCity: store.state.currentCity,
+    });
+    return { data };
+  },
   computed: {
     // ...mapState(['city'])
   },

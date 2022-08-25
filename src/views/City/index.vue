@@ -21,11 +21,14 @@
           class="search-item border-bottom"
           v-for="item of data.searchCities"
           :key="item.id"
-          @click="handleCityClick(item.name)"
+          @click="selectCity(item.name)"
         >
           {{ item.name }}
         </li>
-        <li class="search-item border-bottom" v-show="!data.searchCities.length">
+        <li
+          class="search-item border-bottom"
+          v-show="!data.searchCities.length"
+        >
           没有找到匹配数据
         </li>
       </ul>
@@ -33,11 +36,11 @@
 
     <div class="list" ref="list">
       <div class="content">
-        <div class="area">
+        <div class="area" v-if="data.currentCity">
           <div class="title border-topbottom">当前城市</div>
           <div class="button-list">
             <div class="button-wrapper">
-              <div class="button">北京</div>
+              <div class="button">{{ data.currentCity }}</div>
             </div>
           </div>
         </div>
@@ -49,7 +52,9 @@
               v-for="(item, index) in cityList.hotCities"
               :key="item.id"
             >
-              <div class="button">{{ item.name }}</div>
+              <div class="button" @click="selectCity(item.name)">
+                {{ item.name }}
+              </div>
             </div>
           </div>
         </div>
@@ -62,7 +67,9 @@
           >
             <div class="title border-topbottom">{{ key }}</div>
             <div class="item-list" v-for="(item, index) in value">
-              <div class="item border-topbottom">{{ item.name }}</div>
+              <div class="item border-topbottom" @click="selectCity(item.name)">
+                {{ item.name }}
+              </div>
             </div>
           </div>
         </div>
@@ -87,13 +94,21 @@
 import BScroll from "@better-scroll/core";
 import axios from "axios";
 import { ref, onMounted, reactive, toRef, nextTick, watch } from "vue";
+import store from "@/store";
+import router from "@/router";
 export default {
   name: "City",
 
   setup(props, content) {
     // console.log(props);
     // console.log(content);
-    let data = reactive({ cityList: {}, searchCities: [] });
+    let data = reactive({
+      cityList: {},
+      searchCities: [],
+      currentCity: store.state.currentCity,
+    });
+
+    console.log(store.state);
 
     const list = ref(null);
     const A = ref(null);
@@ -153,6 +168,9 @@ export default {
       //   }, 1000);
       // }
 
+      // 阻止默认行为，比如下拉刷新
+      e.preventDefault();
+
       const index = Math.floor(
         (e.touches[0].clientY - 79 - A.value[0].offsetTop) / 20
       );
@@ -200,8 +218,16 @@ export default {
       // console.log(searchCities);
     });
 
+    function selectCity(city) {
+      store.commit("setCurrentCity", city);
+      data.currentCity = city;
+      router.push("/");
+      localStorage.setItem("currentCity", city);
+    }
+
     return {
       // searchCities,
+      selectCity,
       keyword,
       A,
       letterRefs,
@@ -213,6 +239,9 @@ export default {
       handleCityTouch,
     };
   },
+  // mounted() {
+  //   console.log(this.$store.state);
+  // }
 };
 </script>
 <style lang="stylus" scoped>
